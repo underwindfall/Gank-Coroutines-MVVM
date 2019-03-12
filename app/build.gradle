@@ -37,7 +37,6 @@ dependencies {
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     //dependency injection
-
     // Koin for Android
     implementation 'org.koin:koin-android:1.0.2'
     // Android Scope feature - AndroidX
@@ -45,6 +44,8 @@ dependencies {
     // Android Architecture ViewModel feature - AndroidX
     implementation 'org.koin:koin-androidx-viewmodel:1.0.2'
 
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha02"
+    implementation 'com.google.android.material:material:1.0.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'

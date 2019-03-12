@@ -3,12 +3,12 @@ package com.qifan.kgank.entity
 /**
  * Created by Qifan on 11/02/2019.
  */
-data class GankEntity(
+data class KGankEntity(
     val error: Boolean? = null,
-    val results: List<GankResultsItem?>? = null
+    val results: List<KGankResultsItem?>? = null
 )
 
-data class GankResultsItem(
+data class KGankResultsItem(
     val createdAt: String? = null,
     val publishedAt: String? = null,
     val id: String? = null,
