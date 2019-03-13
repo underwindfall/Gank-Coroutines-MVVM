@@ -1,8 +1,8 @@
 package com.qifan.kgank.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.qifan.kgank.KGankService
-import com.qifan.kgank.repository.KGankRepo
+import com.qifan.kgank.network.KGankService
+import com.qifan.kgank.repository.KGankRepository
 import com.qifan.kgank.viewmodel.KGankViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -14,11 +14,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 
 val viewModelModule = module {
-    viewModel { KGankViewModel(get<KGankRepo>()) }
+    viewModel { KGankViewModel(get<KGankRepository>()) }
 }
 
 val repoModule = module {
-    factory<KGankRepo> { KGankRepo(get()) }
+    factory<KGankRepository> { KGankRepository(get()) }
 }
 
 val remoteModule = module {

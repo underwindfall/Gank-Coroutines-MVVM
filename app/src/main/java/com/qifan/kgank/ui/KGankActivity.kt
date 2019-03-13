@@ -17,7 +17,6 @@ class KGankActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        getViewModel<KGankViewModel>()
         mViewModel.fetchGankContent()
 //        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 //        recyclerview.adapter = SimpleAdapter()

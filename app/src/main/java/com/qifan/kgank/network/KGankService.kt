@@ -1,7 +1,8 @@
-package com.qifan.kgank
+package com.qifan.kgank.network
 
 import com.qifan.kgank.entity.KGankEntity
 import kotlinx.coroutines.Deferred
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -10,5 +11,5 @@ import retrofit2.http.Path
  */
 interface KGankService {
     @GET("data/{type}/{pageSize}/{page}")
-    fun gank(@Path("type") type: String, @Path("page") page: Int, @Path("pageSize") pageSize: Int): Deferred<KGankEntity>
+    fun gankAsync(@Path("type") type: String, @Path("page") page: Int, @Path("pageSize") pageSize: Int): Deferred<Response<KGankEntity>>
 }
