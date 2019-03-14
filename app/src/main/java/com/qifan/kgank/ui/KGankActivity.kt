@@ -1,9 +1,9 @@
 package com.qifan.kgank.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.orhanobut.logger.Logger
 import com.qifan.kgank.R
 import com.qifan.kgank.viewmodel.KGankViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +21,7 @@ class KGankActivity : AppCompatActivity() {
 //        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 //        recyclerview.adapter = SimpleAdapter()
         mViewModel.gankContentLiveData.observe(this, Observer {
-            Log.d("Qifan===========", it.results.toString())
+            Logger.d(it.results.toString())
             textView.text = it.results?.get(0).toString()
         })
     }
