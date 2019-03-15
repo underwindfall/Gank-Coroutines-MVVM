@@ -3,38 +3,31 @@ package com.qifan.kgank.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 /**
- * Created by Qifan on 14/03/2019.
+ * Created by Qifan on 15/03/2019.
  */
 
-@Deprecated("try to use BaseViewModel")
-open class ScopedViewModel : ViewModel(), CoroutineScope {
-    private val job: Job = Job()
-
-    override val coroutineContext: CoroutineContext = Dispatchers.Main + job
-
+open class BaseViewModel : ViewModel() {
     private val _spinner = MutableLiveData<Boolean>()
 
     val spinner: LiveData<Boolean> = _spinner
 
     fun <T : Any> executeCall(callService: suspend () -> BaseResult<T>, handleResult: ((BaseResult<T>)) -> Unit) {
-//        TODO refactor by viewModelScope
-//        viewModelScope.launch {  }
-        launch {
+        viewModelScope.launch {
             _spinner.value = true
             val serviceResult = async(Dispatchers.IO) {
                 callService.invoke()
             }
-            _spinner.value = false
             handleResult(serviceResult.await())
+            _spinner.value = false
         }
+
+
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        job.cancel()
-    }
 }

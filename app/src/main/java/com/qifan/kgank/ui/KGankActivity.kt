@@ -1,6 +1,7 @@
 package com.qifan.kgank.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.orhanobut.logger.Logger
@@ -20,8 +21,12 @@ class KGankActivity : AppCompatActivity() {
         mViewModel.fetchGankContent()
 //        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 //        recyclerview.adapter = SimpleAdapter()
+        mViewModel.spinner.observe(this, Observer { visible ->
+            Logger.d(visible)
+            spinner.visibility = if (visible) View.VISIBLE else View.GONE
+            textView.visibility = if (!visible) View.VISIBLE else View.GONE
+        })
         mViewModel.gankContentLiveData.observe(this, Observer {
-            Logger.d(it.results.toString())
             textView.text = it.results?.get(0).toString()
         })
     }

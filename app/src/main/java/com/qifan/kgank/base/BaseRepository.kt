@@ -11,6 +11,24 @@ import kotlin.coroutines.resume
 
 open class BaseRepository {
 
+    suspend fun <T : Any> executeForResponse(request: suspend () -> Response<T>): BaseResult<T> {
+        return try {
+            val response = request.invoke()
+            if (response.isSuccessful) {
+                val body = response.body()
+                if (body == null) {
+                    BaseResult.Exception(NullPointerException("Response body is null"))
+                } else {
+                    BaseResult.Success(body, response = response.raw())
+                }
+            } else {
+                BaseResult.Error(HttpException(response), response = response.raw())
+            }
+        } catch (e: Exception) {
+            BaseResult.Exception(e)
+        }
+    }
+
     /**
      * Suspend extension that allows suspend [Deferred] inside coroutine.
      *
@@ -22,7 +40,7 @@ open class BaseRepository {
         scope: CoroutineScope
     ): BaseResult<T> {
         return suspendCancellableCoroutine { continuation ->
-            scope.launch {
+            scope.launch(Dispatchers.IO) {
                 try {
                     val response = await()
                     continuation.resume(
