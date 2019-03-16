@@ -19,9 +19,9 @@ class KGankActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mViewModel.fetchGankContent()
-//        recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-//        recyclerview.adapter = SimpleAdapter()
+        button.setOnClickListener {
+            mViewModel.fetchGankContent()
+        }
         mViewModel.spinner.observe(this, Observer { visible ->
             spinner.visibility = if (visible) View.VISIBLE else View.GONE
             textView.visibility = if (!visible) View.VISIBLE else View.GONE
@@ -36,7 +36,4 @@ class KGankActivity : AppCompatActivity() {
         }
     }
 
-//    class SimpleAdapter : RecyclerView.Adapter {
-//
-//    }
 }
