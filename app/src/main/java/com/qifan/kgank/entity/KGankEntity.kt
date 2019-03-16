@@ -5,7 +5,7 @@ package com.qifan.kgank.entity
  */
 data class KGankEntity(
     val error: Boolean? = null,
-    val results: List<KGankResultsItem?>? = null
+    val results: List<KGankResultsItem>? = null
 )
 
 data class KGankResultsItem(

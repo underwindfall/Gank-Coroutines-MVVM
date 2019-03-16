@@ -10,6 +10,6 @@ import retrofit2.http.Path
  * Created by Qifan on 11/02/2019.
  */
 interface KGankService {
-    @GET("data/{type}/{pageSize}/{page}")
+    @GET("data/{type}/{pageSize}/{page}jjjj")
     fun gankAsync(@Path("type") type: String, @Path("page") page: Int, @Path("pageSize") pageSize: Int): Deferred<Response<KGankEntity>>
 }
