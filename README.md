@@ -4,11 +4,7 @@
 
 ## Android 架构介绍
 
-Tivi is an app which attempts to use the latest cutting edge libraries and tools. As a summary:
-
- * Full [Kotlin](https://kotlinlang.org/)
- * Uses all of the [Architecture Components](https://developer.android.com/topic/libraries/architecture/): Room, LiveData and Lifecycle-components
- * Uses [koin-android](https://google.github.io/dagger/android.html) for dependency injection
+![MVVM](https://raw.githubusercontent.com/underwindfall/Gank-Coroutines-MVVM/master/art/Diagram.png)
 
 ## Development Dependency
 
