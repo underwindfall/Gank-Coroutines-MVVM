@@ -1,6 +1,6 @@
 # Kotlin Gank MVVM Coroutines
 
-·KGank· 是一个使用 `Kotlin Coroutines`做请求网络异步操作，`JetPack ViewModel` 作为 `UI` 的数据持有的，以 `Gank API` 作为免费的网络请求的小项目，其目的是为了测试 `Kotlin` 协程的操作与`ViewModel`交互的可能性. 你可以在下面找到这个项目的扩展版.
+·KGank· 是一个使用 `Kotlin Coroutines`做请求网络异步操作，`JetPack ViewModel` 作为 `UI` 的数据持有的，以 `Gank API` 作为免费的网络请求的小项目，其目的是为了测试 `Kotlin` 协程的操作与`ViewModel`交互的可能性. 你可以在[Gank Coroutines Jepack](https://github.com/underwindfall/Gank-Coroutine-JetPack)找到这个项目的扩展版，扩展版使用了近乎大部分的所有[Architecture Components](https://developer.android.com/topic/libraries/architecture/).
 
 ## Android 架构介绍
 
